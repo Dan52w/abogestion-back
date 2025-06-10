@@ -23,19 +23,19 @@ class ServicioDeleteRol {
             .then((caso) => {
                 switch (caso) {
                     case 1:
-                        res.status(404).json({repuesta: "No se encontro el Rol"});
+                        res.status(404).json({respuesta: "No se encontro el Rol"});
                         break;
                     case 2:
-                        res.status(200).json({repuesta: "Rol Eliminado correctamente"});
+                        res.status(200).json({respuesta: "Rol Eliminado correctamente"});
                         break;
                     case 3:
-                        res.status(400).json({repuesta: "No se puede eliminar el Rol, esta referido en otra tabla"});
+                        res.status(400).json({respuesta: "No se puede eliminar el Rol, esta referido en otra tabla"});
                         break;
                 }
             })
             .catch((error) => {
                 console.error(error);
-                return res.status(400).json({repuesta: "Error en el SQL"});
+                return res.status(400).json({respuesta: "Error en el SQL"});
             })
     }
 }

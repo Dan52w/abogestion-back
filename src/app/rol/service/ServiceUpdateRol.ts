@@ -40,7 +40,7 @@ class ServiceUpdateRol{
             })
             .catch((error) => {
                 console.error(error);
-                return res.status(400).json({repuesta: "Error en el SQL"});
+                return res.status(400).json({respuesta: "Error en el SQL"});
             })
     }
 }

@@ -21,7 +21,7 @@ class ServiceAddRol {
             .then(({caso, obj}) => {
                 switch (caso) {
                     case 1:
-                        res.status(400).json({repuesta: "Ya existe ese rol"});
+                        res.status(400).json({respuesta: "Ya existe ese rol"});
                         break;
                     default:
                         res.status(200).json({obj})
@@ -29,7 +29,7 @@ class ServiceAddRol {
             })
             .catch((error) => {
                 console.error(error);
-                return res.status(400).json({repuesta: "Error en el SQL"})
+                return res.status(400).json({respuesta: "Error en el SQL"})
             })
     }
 }
