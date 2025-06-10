@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import pgPromise from 'pg-promise';
 import { optionsPG } from './optionsPG';
 
-dotenv.config({ path: 'variables.env' });
+dotenv.config({ path: '.env' });
 
 const portDB = Number(process.env.PORT);
 const dataBase = String(process.env.DATABASE);
