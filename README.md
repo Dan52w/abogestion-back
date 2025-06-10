@@ -92,6 +92,8 @@ PORT=3000
 DB_HOST=localhost
 DB_USER=usuario
 DB_PASSWORD=clave
+
+NODE_ENV=test npm test
 JWT_SECRET=secreto
 ```
 
