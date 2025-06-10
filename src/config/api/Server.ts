@@ -1,6 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import morgan from 'morgan';
+import routeRolApi from "../../app/rol/route/RouteRol";
 
 class Server {
     public app: express.Application;
@@ -13,6 +14,8 @@ class Server {
         this.app.use(morgan("dev"));
         this.app.use(express.json({limit: '100Mb'}));
         this.app.use(express.urlencoded({extended: true}));
+    
+        this.app.use("/api/v1/rol", routeRolApi);
     }
 
     public encender(): void{
