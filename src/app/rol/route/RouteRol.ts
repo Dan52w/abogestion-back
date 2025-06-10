@@ -3,6 +3,7 @@ import controllerFindAllRol from "../controller/ControllerFindAllRol";
 import controllerAddRol from "../controller/ControllerAddRol";
 import controllerUpdateRol from "../controller/ControllerUpdateRol";
 import controllerFindNameRol from "../controller/ControllerFindNameRol";
+import controllerFindIdRol from "../controller/ControllerFindIdRol";
 
 class RouteRol {
     public routeRolApi: Router;
@@ -12,6 +13,7 @@ class RouteRol {
     
         this.routeRolApi.get("/getall", controllerFindAllRol.callFindAll);
         this.routeRolApi.get("/getname/:name", controllerFindNameRol.callFindName);
+        this.routeRolApi.get("/getid/:id", controllerFindIdRol.callFindId);
     
         this.routeRolApi.post("/add", controllerAddRol.callAddRol);
         this.routeRolApi.put("/update", controllerUpdateRol.callUpdateRol);
