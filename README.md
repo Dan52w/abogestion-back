@@ -96,6 +96,7 @@ JWT_SECRET=secreto
 ```
 
 4. Inicia el servidor
+
 Para iniciar el servidor de desarrollo:
 ```bash
 npm run dev
