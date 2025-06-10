@@ -11,7 +11,7 @@ class ServiceUpdateRol{
             
                 const exiteNewName = await consulta.one(SQL_ROL.HOW_MANY, [newName]);
             
-                if(exiteNewName != 0) {
+                if(exiteNewName.cantidad != 0) {
                     caso = 1;
                     return {caso, obj};
                 }
