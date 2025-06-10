@@ -4,6 +4,7 @@ import controllerAddRol from "../controller/ControllerAddRol";
 import controllerUpdateRol from "../controller/ControllerUpdateRol";
 import controllerFindNameRol from "../controller/ControllerFindNameRol";
 import controllerFindIdRol from "../controller/ControllerFindIdRol";
+import controllerDeleteRol from "../controller/ControllerDeleteRol";
 
 class RouteRol {
     public routeRolApi: Router;
@@ -17,6 +18,7 @@ class RouteRol {
     
         this.routeRolApi.post("/add", controllerAddRol.callAddRol);
         this.routeRolApi.put("/update", controllerUpdateRol.callUpdateRol);
+        this.routeRolApi.delete("/delete/:id", controllerDeleteRol.callDeleteRol)
     }
 }
 
