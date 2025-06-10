@@ -22,8 +22,9 @@ export const SQL_ROL = {
     RETURNING id, nombre`,
 
     UPDATE: `UPDATE roles
-    SET nombre
-    WHERE id = $1`,
+    SET nombre = $1
+    WHERE id = $2
+    RETURNING id, nombre`,
 
     DELETE: `DELETE FROM roles
     WHERE id = $1`
