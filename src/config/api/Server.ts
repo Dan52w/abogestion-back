@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import routeRolApi from "../../app/rol/route/RouteRol";
 import routeTipoClienteApi from "../../app/tipo_cliente/route/RouteTipoCliente";
+import routeClienteApi from "../../app/cliente/route/RouteCliente";
 
 class Server {
     public app: express.Application;
@@ -18,6 +19,7 @@ class Server {
     
         this.app.use("/api/v1/rol", routeRolApi);
         this.app.use("/api/v1/tipocliente", routeTipoClienteApi);
+        this.app.use("/api/v1/cliente", routeClienteApi);
     }
 
     public encender(): void{
