@@ -11,7 +11,7 @@ export const SQL_CLIENTE = {
         INNER JOIN tiposClientes tc ON c.tipoCliente = tc.id`,
 
     FIND_ID: `SELECT c.id,
-            .nombre,
+            c.nombre,
             c.nit_cc,
             c.direccion,
             c.telefono,
