@@ -10,7 +10,7 @@ class ServicioDeleteRol {
             
                 const validarTablas = await consulta.oneOrNone(SQL_ROL.HOW_MANY_PERSONASROLES, [id]);
             
-                if (validarTablas == 0) {
+                if (validarTablas.cantidad == 0) {
                     caso = 2;
                     await consulta.result(SQL_ROL.DELETE, [id]);
                     return caso;
