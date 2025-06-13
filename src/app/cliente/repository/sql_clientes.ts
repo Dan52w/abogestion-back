@@ -67,6 +67,18 @@ export const SQL_CLIENTE = {
         FROM clientes c
         WHERE c.nit_cc = $1`,
 
+    HOW_MANY_ID: `SELECT count(id) as cantidad
+        FROM clientes
+        WHERE id = $1`,
+
+    HOW_MANY_CLIENTESUB: `SELECT count(codCliente) as cantidad
+        FROM suscripciones
+        WHERE codCliente = $1`,
+
+    HOW_MANY_CLIENTEPER: `SELECT count(codCliente) as cantidad
+        FROM personas
+        WHERE codCliente = $1`,
+
     ADD: `INSERT INTO clientes (
             tipoCliente,
             nombre,
