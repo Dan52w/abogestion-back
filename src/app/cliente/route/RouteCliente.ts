@@ -2,6 +2,7 @@ import { Router } from "express";
 import controllerFindAllCliente from "../controller/ControllerFindAllCliente";
 import controllerAddCliente from "../controller/ControllerAddCliente";
 import controllerFindIdCliente from "../controller/ControllerFindIdCliente";
+import controllerUpdateCliente from "../controller/ControllerUpdateCliente";
 
 class RouteCliente {
     public routeClienteApi: Router;
@@ -13,6 +14,7 @@ class RouteCliente {
         this.routeClienteApi.get("/getid/:id", controllerFindIdCliente.callFindIdCliente);
     
         this.routeClienteApi.post("/add", controllerAddCliente.callAddCliente);
+        this.routeClienteApi.put("/update", controllerUpdateCliente.callUpdateCliente);
     }
 }
 

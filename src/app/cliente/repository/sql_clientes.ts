@@ -58,6 +58,11 @@ export const SQL_CLIENTE = {
         INNER JOIN tiposClientes tc ON c.tipoCliente = tc.id
         WHERE c.nombre ILIKE '%' || $1 || '%'`,
 
+    FIND_NAME_TCLIENTE: `SELECT id,
+            nombre
+        FROM tiposClientes
+        WHERE nombre = $1`,
+
     HOW_MANY: `SELECT count(c.nit_cc) as cantidad
         FROM clientes c
         WHERE c.nit_cc = $1`,
