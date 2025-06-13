@@ -17,6 +17,10 @@ export const SQL_TIPOSCLIENTES = {
     FROM tiposClientes
     WHERE nombre = $1`,
 
+    HOW_MANY_ID: `SELECT count(id) as cantidad
+    FROM tiposClientes
+    WHERE id = $1`,
+
     HOW_MANY_CLIENTES: `SELECT count(tipoCliente) as cantidad
     FROM clientes
     WHERE tipoCliente = $1`,

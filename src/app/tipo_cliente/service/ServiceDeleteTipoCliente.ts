@@ -8,6 +8,12 @@ class ServiceDeleteTipoCliente {
             .task(async (consulta) => {
                 let caso = 1;
             
+                const existe = await consulta.one(SQL_TIPOSCLIENTES.HOW_MANY_ID, [id]);
+            
+                if(existe.cantidad == 0) {
+                    return caso;
+                }
+            
                 const validarTablas = await consulta.oneOrNone(SQL_TIPOSCLIENTES.HOW_MANY_CLIENTES, [id]);
             
                 if(validarTablas.cantidad == 0) {
@@ -26,7 +32,7 @@ class ServiceDeleteTipoCliente {
                         res.status(404).json({respuesta: "No se encontro el Tipo Cliente"});
                         break;
                     case 2:
-                        res.status(200).json({respuesta: "Tipo Caso eliminado correctamente"});
+                        res.status(200).json({respuesta: "Tipo Cliente eliminado correctamente"});
                         break;
                     default:
                         res.status(400).json({respuesta: "No se puede eliminar el Tipo Cliente, esta referido en otra tabla"});
