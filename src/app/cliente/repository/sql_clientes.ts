@@ -32,7 +32,7 @@ export const SQL_CLIENTE = {
             tc.nombre AS tipoCliente
         FROM clientes c
         INNER JOIN tiposClientes tc ON c.tipoCliente = tc.id
-        WHERE c.nit_cc = $1`,
+        WHERE c.nit_cc ILIKE '%' || $1 || '%'`,
 
     FIND_BY_NAME: `SELECT c.id,
             c.nombre,
