@@ -81,6 +81,10 @@ export const SQL_PERSONA = {
         FROM personas
         WHERE id = $1`,
 
+    HOW_MANY_EMAIL: `SELECT count(correo) as cantidad
+        FROM personas
+        WHERE correo = $1`,
+
     HOW_MANY_PERSONASROL: `SELECT count(codPersona) as cantidad
         FROM personasRoles
         WHERE codPersona = $1`,
