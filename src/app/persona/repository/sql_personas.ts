@@ -116,7 +116,7 @@ export const SQL_PERSONA = {
             activo,
             codCliente)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-        RETURNING id, nombre`,
+        RETURNING id, nombre, apellido, fecha_nacimiento, correo, telefono, direccion, activo`,
 
     UPDATE: `UPDATE personas
         SET cedula = $1,
@@ -129,7 +129,7 @@ export const SQL_PERSONA = {
             activo = $8,
             codCliente = $9
         WHERE id = $10
-        RETURNING id, nombre`,
+        RETURNING id, nombre, apellido, fecha_nacimiento, correo, telefono, direccion, activo`,
 
     DELETE: `DELETE FROM personas
         WHERE id = $1`
