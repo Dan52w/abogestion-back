@@ -5,6 +5,7 @@ import controllerUpdatePersona from "../controller/ControllerUpdatePersona";
 import controllerFindNamePersona from "../controller/ControllerFindNamePersona";
 import controllerDeleteCliente from "../../cliente/controller/ControllerDeleteCliente";
 import controllerFindCcPersona from "../controller/ControllerFindCcPersona";
+import controllerFindBtwDatePersona from "../controller/ControllerFindBtwDatePersona";
 
 class RoutePersona {
     public routePersonaApi: Router;
@@ -15,6 +16,7 @@ class RoutePersona {
         this.routePersonaApi.get("/getall", controllerFindAllPersona.callFindAll);
         this.routePersonaApi.get("/getname/:name", controllerFindNamePersona.callFindName);
         this.routePersonaApi.get("/getcc/:cc", controllerFindCcPersona.callFindCc);
+        this.routePersonaApi.get("/getbtwdate", controllerFindBtwDatePersona.callFindBtwDate);
     
         this.routePersonaApi.post("/add", controllerAddPersona.callAddPersona);
         this.routePersonaApi.put("/update", controllerUpdatePersona.callUpdatePersona);

@@ -69,6 +69,20 @@ export const SQL_PERSONA = {
         WHERE p.nombre ILIKE '%' || $1 || '%'
             OR p.apellido ILIKE '%' || $1 || '%'`,
 
+    FIND_BY_FECHANACIMIENTO_BETWEEN: `SELECT p.id,
+            p.cedula,
+            p.nombre,
+            p.apellido,
+            p.fecha_nacimiento,
+            p.correo,
+            p.telefono,
+            p.direccion,
+            p.activo,
+            c.nombre AS cliente
+        FROM personas p
+        INNER JOIN clientes c ON p.codCliente = c.id
+        WHERE p.fecha_nacimiento BETWEEN $1 AND $2`,
+
     FIND_NAME_CLIENTE: `SELECT id,
             nombre
         FROM clientes
