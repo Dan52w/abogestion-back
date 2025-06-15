@@ -66,7 +66,8 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        WHERE p.nombre ILIKE '%' || $1 || '%'`,
+        WHERE p.nombre ILIKE '%' || $1 || '%'
+            OR p.apellido ILIKE '%' || $1 || '%'`,
 
     FIND_NAME_CLIENTE: `SELECT id,
             nombre
