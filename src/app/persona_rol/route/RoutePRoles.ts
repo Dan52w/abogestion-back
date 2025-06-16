@@ -1,6 +1,7 @@
 import { Router } from "express";
 import controllerFindAllPRoles from "../controller/ControllerFindAllPRoles";
 import controllerAddPRoles from "../controller/ControllerAddPRoles";
+import controllerDeletePRoles from "../controller/ControllerDeletePRoles";
 
 class RoutePRoles {
     public routaPRolesApi: Router;
@@ -11,6 +12,7 @@ class RoutePRoles {
         this.routaPRolesApi.get("/getall", controllerFindAllPRoles.callFindAll);
     
         this.routaPRolesApi.post("/add", controllerAddPRoles.callAddPRoles);
+        this.routaPRolesApi.delete("/delete/:id", controllerDeletePRoles.callDeletePRoles);
     }
 }
 
