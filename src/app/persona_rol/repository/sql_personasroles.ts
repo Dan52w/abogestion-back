@@ -22,11 +22,15 @@ export const SQL_PERSONAS_ROLES = {
 
     HOW_MANY: `SELECT count(id) as cantidad
         FROM personasRoles
-        WHERE codRol = $1`,
+        WHERE codRol = $1 and codPersona = $2`,
 
-    HOW_MANY_BY_PERSONA: `SELECT count(id) as cantidad
-        FROM personasRoles
-        WHERE codPersona = $1`,
+    HOW_MANY_ROL: `SELECT count(id) as cantidad
+        FROM roles
+        WHERE id = $1`,
+
+    HOW_MANY_PERSONA: `SELECT count(id) as cantidad
+        FROM personas
+        WHERE id = $1`,
 
     ADD: `INSERT INTO personasRoles (
             codRol,

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import controllerFindAllPRoles from "../controller/ControllerFindAllPRoles";
+import controllerAddPRoles from "../controller/ControllerAddPRoles";
 
 class RoutePRoles {
     public routaPRolesApi: Router;
@@ -8,6 +9,8 @@ class RoutePRoles {
         this.routaPRolesApi = Router();
     
         this.routaPRolesApi.get("/getall", controllerFindAllPRoles.callFindAll);
+    
+        this.routaPRolesApi.post("/add", controllerAddPRoles.callAddPRoles);
     }
 }
 
