@@ -4,6 +4,7 @@ import controllerAddTipoCaso from "../controller/ControllerAddTipoCaso";
 import controllerUpdateTipoCaso from "../controller/ControllerUpdateTipoCaso";
 import controllerDeleteTipoCaso from "../controller/ControllerDeleteTipoCaso";
 import controllerFindNameTipoCaso from "../controller/ControllerFindNameTipoCaso";
+import controllerFindIdTipoCaso from "../controller/ControllerFindIdTipoCaso";
 
 class RouteTipoCaso{
     public routeTipoCasoApi: Router;
@@ -13,6 +14,7 @@ class RouteTipoCaso{
     
         this.routeTipoCasoApi.get("/getall", controllerFindAllTipoCaso.callFindAll);
         this.routeTipoCasoApi.get("/getname/:name", controllerFindNameTipoCaso.findName);
+        this.routeTipoCasoApi.get("/getid/:id", controllerFindIdTipoCaso.callFindId);
     
         this.routeTipoCasoApi.post("/add", controllerAddTipoCaso.callAddTipoCaso);
         this.routeTipoCasoApi.put("/update", controllerUpdateTipoCaso.callUpdateTipoCaso);
