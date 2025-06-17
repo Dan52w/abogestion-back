@@ -1,6 +1,7 @@
 import { Router } from "express";
 import controllerFindAllTipoCaso from "../controller/ControllerFindAllTipoCaso";
 import controllerAddTipoCaso from "../controller/ControllerAddTipoCaso";
+import controllerUpdateTipoCaso from "../controller/ControllerUpdateTipoCaso";
 
 class RouteTipoCaso{
     public routeTipoCasoApi: Router;
@@ -11,6 +12,7 @@ class RouteTipoCaso{
         this.routeTipoCasoApi.get("/getall", controllerFindAllTipoCaso.callFindAll);
     
         this.routeTipoCasoApi.post("/add", controllerAddTipoCaso.callAddTipoCaso);
+        this.routeTipoCasoApi.put("/update", controllerUpdateTipoCaso.callUpdateTipoCaso);
     }
 }
 
