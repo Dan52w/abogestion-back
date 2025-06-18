@@ -7,6 +7,7 @@ import routeClienteApi from "../../app/cliente/route/RouteCliente";
 import routePersonaApi from "../../app/persona/route/RoutePersona";
 import routaPRolesApi from "../../app/persona_rol/route/RoutePRoles";
 import routeTipoCasoApi from "../../app/tipo_caso/route/RouteTipoCaso";
+import routeSubTipoCasoApi from "../../app/subtipo_caso/route/RouteSubTipoCaso";
 
 class Server {
     public app: express.Application;
@@ -26,6 +27,7 @@ class Server {
         this.app.use("/api/v1/persona", routePersonaApi);
         this.app.use("/api/v1/personarol", routaPRolesApi);
         this.app.use("/api/v1/tipocaso", routeTipoCasoApi);
+        this.app.use("/api/v1/subtipocaso", routeSubTipoCasoApi);
     }
 
     public encender(): void{
