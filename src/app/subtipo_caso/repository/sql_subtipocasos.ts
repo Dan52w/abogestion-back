@@ -33,6 +33,11 @@ export const SQL_SUBTIPOCASO = {
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
         WHERE tc.nombre ILIKE '%' || $1 || '%'`,
 
+    FIND_TIPO_CASO_NOMBRE: `SELECT id,
+            nombre
+        FROM tipocasos
+        WHERE nombre = $1 `,
+
     HOW_MANY: `SELECT COUNT(id) AS cantidad
         FROM subtipocasos
         WHERE nombre = $1`,
