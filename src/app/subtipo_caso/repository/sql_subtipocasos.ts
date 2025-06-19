@@ -38,6 +38,11 @@ export const SQL_SUBTIPOCASO = {
         FROM tipocasos
         WHERE nombre = $1 `,
 
+    FIND_TIPO_CASO_ID: `SELECT id,
+            nombre
+        FROM tipocasos
+        WHERE id = $1 `,
+
     HOW_MANY: `SELECT COUNT(id) AS cantidad
         FROM subtipocasos
         WHERE nombre = $1`,
