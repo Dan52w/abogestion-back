@@ -47,6 +47,10 @@ export const SQL_SUBTIPOCASO = {
         FROM subtipocasos
         WHERE nombre = $1`,
 
+    HOW_MANY_CASO: `SELECT COUNT(id) AS cantidad
+        FROM casos
+        WHERE codSubTipoCaso = $1`,
+
     ADD: `INSERT INTO subtipocasos (
             nombre,
             codTipoCaso)
