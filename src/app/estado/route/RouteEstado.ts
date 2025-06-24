@@ -4,6 +4,7 @@ import controllerAddEstado from "../controller/ControllerAddEstado";
 import controllerUpdateEstado from "../controller/ControllerUpdateEstado";
 import controllerDeleteEstado from "../controller/ControllerDeleteEstado";
 import controllerFindIdEstado from "../controller/ControllerFindIdEstado";
+import controllerFindNameEstado from "../controller/ControllerFindNameEstado";
 
 class RouteEstado {
     public routeEstadoApi: Router;
@@ -13,6 +14,7 @@ class RouteEstado {
     
         this.routeEstadoApi.get("/getall", controllerFindAllEstado.callFindAll);
         this.routeEstadoApi.get("/getid/:id", controllerFindIdEstado.callFindId);
+        this.routeEstadoApi.get("/getname/:name", controllerFindNameEstado.callFindName)
     
         this.routeEstadoApi.post("/add", controllerAddEstado.callAddEstado);
         this.routeEstadoApi.put("/update", controllerUpdateEstado.callUpdateEstado);
