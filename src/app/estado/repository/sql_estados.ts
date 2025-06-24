@@ -22,6 +22,11 @@ export const SQL_ESTADO = {
         FROM estados
         WHERE nombre = $1`,
 
+    HOW_MANY_CASO: `SELECT COUNT(estado) AS cantidad
+        FROM casos
+        WHERE estado = $1`,
+
+
     ADD: `INSERT INTO estados (
             nombre)
         VALUES ($1)
