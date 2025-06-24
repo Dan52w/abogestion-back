@@ -4,6 +4,7 @@ import controllerAddSubTipoCaso from "../controller/ControllerAddSubTipoCaso";
 import controllerUpdateSubTipoCaso from "../controller/ControllerUpdateSubTipoCaso";
 import controllerFindNameSubTipoCaso from "../controller/ControllerFindNameSubTipoCaso";
 import controllerDeleteSubTipoCaso from "../controller/ControllerDeleteSubTipoCaso";
+import controllerFindTypeNameSubTipoCaso from "../controller/ControllerFindTypeNameSubTipoCaso";
 
 class RouteSubTipoCaso {
     public routeSubTipoCasoApi: Router;
@@ -13,6 +14,7 @@ class RouteSubTipoCaso {
     
         this.routeSubTipoCasoApi.get("/getall", controllerFindAllSubTipoCaso.callFindAll);
         this.routeSubTipoCasoApi.get("/getname/:name", controllerFindNameSubTipoCaso.callFindName);
+        this.routeSubTipoCasoApi.get("/gettype/:name", controllerFindTypeNameSubTipoCaso.callFindTypeName);
     
         this.routeSubTipoCasoApi.post("/add", controllerAddSubTipoCaso.callAddSubTipoCaso);
         this.routeSubTipoCasoApi.put("/update", controllerUpdateSubTipoCaso.callUpdateSubTipoCaso);
