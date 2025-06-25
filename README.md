@@ -110,4 +110,26 @@ npm run build
 
 ## 📂 Estructura del proyecto
 
-por definir
+```bash
+Abogestion/
+├── src/                           # Código fuente principal
+│   ├── app/                       # Rutas y Servicios
+│   │   ├── caperta/               # Carpeta refente a cada tabla
+│   │   │   ├── controller/        # Desarrollo de controladores
+│   │   │   ├── modelo/            # Modelos de implementacion de tabla
+│   │   │   ├── repository/        # Consultas a la base de datos
+│   │   │   ├── route/             # Ruta para llamar al coontrolador
+│   │   └── └── service/           # Implementacion de la logica
+│   ├── config/                    # Configuracion de la App
+│   │   ├── api/                   # Implementacion del servicio
+│   │   ├── connection/            # manejo de coneccion a la base de datos
+│   │   ├── domain/                # 
+│   │   └── utilities/             #
+│   ├── external_files/            # Guardar archivoz que se reciban
+│   │   ├── excel/
+│   │   ├── image/
+│   │   ├── pdf/
+│   │   └── word/
+│   ├── middlewar/                 # 
+└── [Archivos de configuración]    # Configuraciones varias
+```
