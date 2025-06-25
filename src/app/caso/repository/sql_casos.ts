@@ -2,12 +2,16 @@ export const SQL_CASOS = {
     FIND_ALL: `SELECT c.id,
             c.titulo,
             c.descripcion,
-            c.estado,
+            e.nombre AS estado,
             c.fechaInicio,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
-            COALESCE(cp.titulo, 'Caso principal') AS derivado
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
         FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id`,
@@ -15,13 +19,17 @@ export const SQL_CASOS = {
     FIND_ID: `SELECT c.id,
             c.titulo,
             c.descripcion,
-            c.estado,
+            e.nombre AS estado,
             c.fechaInicio,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
-            COALESCE(cp.titulo, 'Caso principal') AS derivado
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
         FROM casos c
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
+        INNER JOIN estados e ON c.estado = e.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE c.id = $1`,
@@ -29,12 +37,16 @@ export const SQL_CASOS = {
     FIND_BY_TITLE_LIKE: `SELECT c.id,
             c.titulo,
             c.descripcion,
-            c.estado,
+            e.nombre AS estado,
             c.fechaInicio,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
-            COALESCE(cp.titulo, 'Caso principal') AS derivado
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
         FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
@@ -43,11 +55,15 @@ export const SQL_CASOS = {
     FIND_BY_SUBTIPO: `SELECT c.id,
             c.titulo,
             c.descripcion,
-            c.estado,
+            e.nombre AS estado,
             c.fechaInicio,
             stc.nombre AS subtipo,
-            COALESCE(cp.titulo, 'Caso principal') AS derivado
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
         FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE stc.nombre ILIKE '%' || $1 || '%'`,
@@ -55,12 +71,16 @@ export const SQL_CASOS = {
     FIND_BY_TIPO: `SELECT c.id,
             c.titulo,
             c.descripcion,
-            c.estado,
+            e.nombre AS estado,
             c.fechaInicio,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
-            COALESCE(cp.titulo, 'Caso principal') AS derivado
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
         FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
@@ -78,7 +98,7 @@ export const SQL_CASOS = {
             codSubtipoCaso,
             codCasoPadre)
         VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING id, titulo`,
+        RETURNING id, titulo, descripcion, estado, fechaInicio, codSubtipoCaso, codCasoPadre`,
 
     UPDATE: `UPDATE casos
         SET titulo = $1,
