@@ -9,6 +9,7 @@ import routaPRolesApi from "../../app/persona_rol/route/RoutePRoles";
 import routeTipoCasoApi from "../../app/tipo_caso/route/RouteTipoCaso";
 import routeSubTipoCasoApi from "../../app/subtipo_caso/route/RouteSubTipoCaso";
 import routeEstadoApi from "../../app/estado/route/RouteEstado";
+import routeCasoApi from "../../app/caso/route/RouteCaso";
 
 class Server {
     public app: express.Application;
@@ -30,6 +31,7 @@ class Server {
         this.app.use("/api/v1/tipocaso", routeTipoCasoApi);
         this.app.use("/api/v1/subtipocaso", routeSubTipoCasoApi);
         this.app.use("/api/v1/estado", routeEstadoApi);
+        this.app.use("/api/v1/caso", routeCasoApi);
     }
 
     public encender(): void{
