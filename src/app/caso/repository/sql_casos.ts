@@ -90,6 +90,10 @@ export const SQL_CASOS = {
         FROM casos
         WHERE titulo = $1`,
 
+    HOW_MANY_HISTOCAMBIO: `SELECT count(codCaso) AS cantidad
+        FROM historialCambio
+        WHERE codCaso = $1`,
+
     ADD: `INSERT INTO casos (
             titulo,
             descripcion,
