@@ -108,7 +108,7 @@ export const SQL_CASOS = {
             codSubtipoCaso = $5,
             codCasoPadre = $6
         WHERE id = $7
-        RETURNING id, titulo`,
+        RETURNING id, titulo, descripcion, estado, fechaInicio, codSubtipoCaso, codCasoPadre`,
 
     DELETE: `DELETE FROM casos
         WHERE id = $1`
