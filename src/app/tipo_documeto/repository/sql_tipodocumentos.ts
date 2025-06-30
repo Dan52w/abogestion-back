@@ -26,6 +26,10 @@ export const SQL_TIPODOCUMENTO = {
         FROM tipodocumentos
         WHERE nombre = $1`,
 
+    HOW_MANY_DOCUMENTO: `SELECT COUNT(tipoDocumento) AS cantidad
+        FROM documentos
+        WHERE tipoDocumento = $1`,
+
     ADD: `INSERT INTO tipodocumentos (
             nombre,
             descripcion)
