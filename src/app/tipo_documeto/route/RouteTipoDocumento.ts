@@ -3,6 +3,7 @@ import controllerFindAllTipoDocumento from "../controller/ControllerFindAllTipoD
 import controllerAddTipoDocumento from "../controller/ControllerAddTipoDocumento";
 import controllerUpdateTipoDocumento from "../controller/ControllerUpdateTipoDocumento";
 import controllerDeleteTipoDocumento from "../controller/ControllerDeleteTipoDocumento";
+import controllerFindNameTipoDocumento from "../controller/ControllerFindNameTipoDocumento";
 
 class RouteTipoDocumento {
     public routeTipoDocumentoApi: Router;
@@ -11,6 +12,7 @@ class RouteTipoDocumento {
         this.routeTipoDocumentoApi = Router();
     
         this.routeTipoDocumentoApi.get("/getall", controllerFindAllTipoDocumento.callFindAll);
+        this.routeTipoDocumentoApi.get("/getname/:name", controllerFindNameTipoDocumento.callFindName);
     
         this.routeTipoDocumentoApi.post("/add", controllerAddTipoDocumento.callAddTipoDocumento);
         this.routeTipoDocumentoApi.put("/update", controllerUpdateTipoDocumento.callUpdateTipoDocumento);
