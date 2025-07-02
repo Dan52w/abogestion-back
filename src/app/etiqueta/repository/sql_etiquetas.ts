@@ -45,7 +45,7 @@ export const SQL_ETIQUETA = {
 
     HOW_MANY: `SELECT COUNT(id) AS cantidad
         FROM etiquetas
-        WHERE nombre = $1`,
+        WHERE nombre = $1 AND codTipoEtiqueta = $2`,
 
     ADD: `INSERT INTO etiquetas (
             nombre,

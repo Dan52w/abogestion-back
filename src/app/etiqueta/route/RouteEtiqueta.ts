@@ -1,5 +1,6 @@
 import { Router } from "express";
 import controllerFindAllEtiqueta from "../controller/ControllerFindAllEtiqueta";
+import controllerAddEtiqueta from "../controller/ControllerAddEtiqueta";
 
 class RouteEtiqueta {
     public routeEtiquetaApi: Router;
@@ -8,6 +9,8 @@ class RouteEtiqueta {
         this.routeEtiquetaApi = Router();
     
         this.routeEtiquetaApi.get("/getall", controllerFindAllEtiqueta.callFindAll);
+    
+        this.routeEtiquetaApi.post("/add", controllerAddEtiqueta.callAddEtiqueta);
     }
 }
 
