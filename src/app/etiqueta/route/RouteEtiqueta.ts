@@ -2,6 +2,7 @@ import { Router } from "express";
 import controllerFindAllEtiqueta from "../controller/ControllerFindAllEtiqueta";
 import controllerAddEtiqueta from "../controller/ControllerAddEtiqueta";
 import controllerUpdateEtiqueta from "../controller/ControllerUpdateEtiqueta";
+import controllerDeleteEtiqueta from "../controller/ControllerDeleteEtiqueta";
 
 class RouteEtiqueta {
     public routeEtiquetaApi: Router;
@@ -13,6 +14,7 @@ class RouteEtiqueta {
     
         this.routeEtiquetaApi.post("/add", controllerAddEtiqueta.callAddEtiqueta);
         this.routeEtiquetaApi.put("/update", controllerUpdateEtiqueta.callUpdateEtiqueta);
+        this.routeEtiquetaApi.delete("/delete/:id", controllerDeleteEtiqueta.callDeleteEtiqueta);
     }
 }
 

@@ -47,6 +47,10 @@ export const SQL_ETIQUETA = {
         FROM etiquetas
         WHERE nombre = $1 AND codTipoEtiqueta = $2`,
 
+    HOW_MANY_DOCETIQUE: `SELECT COUNT(codEtiqueta) AS cantidad
+        FROM documentosEtiquetas
+        WHERE codEtiqueta = $1`,
+
     ADD: `INSERT INTO etiquetas (
             nombre,
             codTipoEtiqueta)
