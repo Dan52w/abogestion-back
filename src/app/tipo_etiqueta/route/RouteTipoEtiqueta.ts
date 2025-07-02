@@ -1,6 +1,7 @@
 import { Router } from "express";
 import controllerFindAllTipoEtiqueta from "../controller/ControllerFindAllTipoEtiqueta";
 import controllerAddTipoEtiqueta from "../controller/ControllerAddTipoEtiqueta";
+import controllerUpdateTipoEtiqueta from "../controller/ControllerUpdateTipoEtiqueta";
 
 class RouteTipoEtiqueta {
     public routeTipoEtiquetaApi: Router;
@@ -11,6 +12,7 @@ class RouteTipoEtiqueta {
         this.routeTipoEtiquetaApi.get("/getall", controllerFindAllTipoEtiqueta.callFindAll);
     
         this.routeTipoEtiquetaApi.post("/add", controllerAddTipoEtiqueta.callAddTipoEtiqueta);
+        this.routeTipoEtiquetaApi.put("/update", controllerUpdateTipoEtiqueta.callUpdateTipoEtiqueta);
     }
 }
 
