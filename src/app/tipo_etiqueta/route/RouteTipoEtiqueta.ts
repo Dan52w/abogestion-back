@@ -3,6 +3,7 @@ import controllerFindAllTipoEtiqueta from "../controller/ControllerFindAllTipoEt
 import controllerAddTipoEtiqueta from "../controller/ControllerAddTipoEtiqueta";
 import controllerUpdateTipoEtiqueta from "../controller/ControllerUpdateTipoEtiqueta";
 import controllerDeleteTipoEtiqueta from "../controller/ControllerDeleteTipoEtiqueta";
+import controllerFindIdTipoEtiqueta from "../controller/ControllerFindIdTipoEtiqueta";
 
 class RouteTipoEtiqueta {
     public routeTipoEtiquetaApi: Router;
@@ -11,6 +12,7 @@ class RouteTipoEtiqueta {
         this.routeTipoEtiquetaApi = Router();
     
         this.routeTipoEtiquetaApi.get("/getall", controllerFindAllTipoEtiqueta.callFindAll);
+        this.routeTipoEtiquetaApi.get("/getid/:id", controllerFindIdTipoEtiqueta.callFindId);
     
         this.routeTipoEtiquetaApi.post("/add", controllerAddTipoEtiqueta.callAddTipoEtiqueta);
         this.routeTipoEtiquetaApi.put("/update", controllerUpdateTipoEtiqueta.callUpdateTipoEtiqueta);
