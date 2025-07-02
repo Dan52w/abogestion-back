@@ -21,8 +21,8 @@ export const SQL_TIPOSETIQUETAS = {
         FROM tipoetiquetas
         WHERE id = $1`,
 
-    HOW_MANY_SUBTIPO: `SELECT count(codTipoEtiqueta) as cantidad
-        FROM etiqueta
+    HOW_MANY_ETIQUETA: `SELECT count(codTipoEtiqueta) as cantidad
+        FROM etiquetas
         WHERE codTipoEtiqueta = $1`,
 
     ADD: `INSERT INTO tipoetiquetas (nombre)
