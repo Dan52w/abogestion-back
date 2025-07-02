@@ -52,6 +52,7 @@ npm i pg-promise
 npm i express-validator
 npm i bcryptjs
 npm i jsonwebtoken
+npm i multer
 
 | Paquete              | Función principal                                                |
 |----------------------|------------------------------------------------------------------|
@@ -62,6 +63,7 @@ npm i jsonwebtoken
 | **jsonwebtoken**     | Generación y validación de tokens JWT.                           |
 | **express-validator**| Validación de datos de entrada en las rutas.                     |
 | **pg-promise**       | Conexión y consulta a base de datos PostgreSQL.                  |
+| **multer**           | Gestionar la carga de archivos                                   |
 ```
 
 Librerias del enterno de desarrollo
@@ -72,6 +74,7 @@ npm i nodemon --save-dev
 npm i @types/cors --save-dev
 npm i @types/express --save-dev 
 npm i @types/morgan --save-dev
+npm install --save-dev @types/multer
 
 | Paquete              | Función principal                                                |
 |----------------------|------------------------------------------------------------------|
@@ -80,6 +83,7 @@ npm i @types/morgan --save-dev
 | **@types/cors**      | Tipado para usar cors en proyectos TypeScript.                   |
 | **@types/express**   | Tipado para Express (si se usa TypeScript o IDEs como VSCode).   |
 | **@types/morgan**    | Tipado para Morgan.                                              |
+| **@types/multer**    | Tipado para Multer, usado para manejar carga de archivos.        |
 ```
 ---
 
