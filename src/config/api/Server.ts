@@ -13,6 +13,7 @@ import routeCasoApi from "../../app/caso/route/RouteCaso";
 import routeTipoDocumentoApi from "../../app/tipo_documeto/route/RouteTipoDocumento";
 import routeTipoEtiquetaApi from "../../app/tipo_etiqueta/route/RouteTipoEtiqueta";
 import routeEtiquetaApi from "../../app/etiqueta/route/RouteEtiqueta";
+import routeDocumentoApi from "../../app/documento/route/RouteDocumento";
 
 class Server {
     public app: express.Application;
@@ -38,6 +39,7 @@ class Server {
         this.app.use("/api/v1/tipodocumento", routeTipoDocumentoApi);
         this.app.use("/api/v1/tipoetiqueta", routeTipoEtiquetaApi);
         this.app.use("/api/v1/etiqueta", routeEtiquetaApi);
+        this.app.use("/api/v1/documento", routeDocumentoApi);
     }
 
     public encender(): void{
