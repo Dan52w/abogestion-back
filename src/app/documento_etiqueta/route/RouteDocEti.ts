@@ -1,5 +1,6 @@
 import { Router } from "express";
 import controllerFindAllDocEti from "../controller/ControllerFindAllDocEti";
+import controllerAddDocEti from "../controller/ControllerAddDocEti";
 
 class RouteDocEti {
     public routeDocEtiApi: Router;
@@ -8,6 +9,8 @@ class RouteDocEti {
         this.routeDocEtiApi = Router();
     
         this.routeDocEtiApi.get("/getall", controllerFindAllDocEti.callFindAll);
+    
+        this.routeDocEtiApi.post("/add", controllerAddDocEti.callAddDocEti);
     }
 }
 

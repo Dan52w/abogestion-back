@@ -25,6 +25,14 @@ export const SQL_DOCUMENTO_ETIQUETA = {
         FROM documentosEtiquetas
         WHERE codDocumento = $1 AND codEtiqueta = $2`,
 
+    HOW_MANY_DOC: `SELECT COUNT(id) AS cantidad
+        FROM documentos
+        WHERE id = $1`,
+
+    HOW_MANY_ETI: `SELECT COUNT(id) AS cantidad
+        FROM etiquetas
+        WHERE id = $1`,
+
     ADD: `INSERT INTO documentosEtiquetas (
             codDocumento,
             codEtiqueta)
