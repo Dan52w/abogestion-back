@@ -130,6 +130,10 @@ export const SQL_DOCUMENTOS = {
             FROM tipoDocumentos
             WHERE id = $1`,
 
+    HOW_MANY_DOCETIQUE : `SELECT COUNT(codDocumento) AS cantidad
+            FROM documentosEtiquetas
+            WHERE codDocumento = $1`,
+
     ADD : `INSERT INTO documentos(
             codCaso,
             tipoDocumento,

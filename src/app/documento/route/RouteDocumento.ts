@@ -6,6 +6,7 @@ import controllerDownloadDocumento from "../controller/ControllerDownloadDocumen
 import controllerFindNameDocumento from "../controller/ControllerFindNameDocumento";
 import controllerFindIdDocumento from "../controller/ControllerFindIdDocumento";
 import controllerUpdateDocumento from "../controller/ControllerUpdateDocumento";
+import controllerDeleteDocumento from "../controller/ControllerDeleteDocumento";
 
 class RouteDocumento {
     public routeDocumentoApi: Router;
@@ -20,6 +21,7 @@ class RouteDocumento {
     
         this.routeDocumentoApi.post("/add", upload.single("file"), controllerAddDocumeto.callAddDocuemnto);
         this.routeDocumentoApi.put("/update", controllerUpdateDocumento.callUpdateDocumento);
+        this.routeDocumentoApi.delete("/delete/:id", controllerDeleteDocumento.callDeleteDocumento);
     }
 }
 
