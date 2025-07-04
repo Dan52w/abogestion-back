@@ -138,4 +138,15 @@ export const SQL_DOCUMENTOS = {
             fechaSubida)
         VALUES($1, $2, $3, $4, $5)
         RETURNING id, codCaso, tipoDocumento, nombre, url, fechaSubida`,
+
+    UPDATE: `UPDATE documentos
+        SET codCaso = $1,
+            tipoDocumento = $2,
+            nombre = $3
+        WHERE id = $4
+        RETURNING id, codCaso, tipoDocumento, nombre, url, fechaSubida`,
+
+    DELETE: `DELETE FROM documentos
+    WHERE id = $1
+    RETURNING id, nombre`,
 }

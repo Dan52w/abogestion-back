@@ -5,6 +5,7 @@ import upload from "../controller/upload";
 import controllerDownloadDocumento from "../controller/ControllerDownloadDocumento";
 import controllerFindNameDocumento from "../controller/ControllerFindNameDocumento";
 import controllerFindIdDocumento from "../controller/ControllerFindIdDocumento";
+import controllerUpdateDocumento from "../controller/ControllerUpdateDocumento";
 
 class RouteDocumento {
     public routeDocumentoApi: Router;
@@ -18,6 +19,7 @@ class RouteDocumento {
         this.routeDocumentoApi.get("/download/:id", controllerDownloadDocumento.callDownloadDocumento);
     
         this.routeDocumentoApi.post("/add", upload.single("file"), controllerAddDocumeto.callAddDocuemnto);
+        this.routeDocumentoApi.put("/update", controllerUpdateDocumento.callUpdateDocumento);
     }
 }
 
