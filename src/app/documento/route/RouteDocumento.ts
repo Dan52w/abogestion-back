@@ -3,6 +3,7 @@ import controllerFindAllDocumento from "../controller/ControllerFindAllDocumento
 import controllerAddDocumeto from "../controller/ControllerAddDocumento";
 import upload from "../controller/upload";
 import controllerDownloadDocumento from "../controller/ControllerDownloadDocumento";
+import controllerFindNameDocumento from "../controller/ControllerFindNameDocumento";
 
 class RouteDocumento {
     public routeDocumentoApi: Router;
@@ -11,6 +12,7 @@ class RouteDocumento {
         this.routeDocumentoApi = Router();
     
         this.routeDocumentoApi.get("/getall", controllerFindAllDocumento.callFindAll);
+        this.routeDocumentoApi.get("/getname/:name", controllerFindNameDocumento.callFindName);
         this.routeDocumentoApi.get("/download/:id", controllerDownloadDocumento.callDownloadDocumento);
     
         this.routeDocumentoApi.post("/add", upload.single("file"), controllerAddDocumeto.callAddDocuemnto);

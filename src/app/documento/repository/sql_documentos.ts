@@ -105,6 +105,23 @@ export const SQL_DOCUMENTOS = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE d.nombre = $1`,
 
+    FIND_BETWEEN_FECHAS: `SELECT d.id,
+            c.titulo AS caso,
+            c.id AS codCaso,
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado,
+            td.nombre AS tipoDocumento,
+            d.nombre,
+            d.url,
+            d.fechaSubida
+        FROM documentos d
+        INNER JOIN tipoDocumentos td ON d.tipoDocumento = td.id
+        INNER JOIN casos c ON d.codCaso = c.id
+        LEFT JOIN casos cp ON c.codCasoPadre = cp.id
+        WHERE d.fechaSubida BETWEEN $1 AND $2`,
+
     HOW_MANY_CASO : `SELECT COUNT(id) AS cantidad
             FROM casos
             WHERE id = $1`,
