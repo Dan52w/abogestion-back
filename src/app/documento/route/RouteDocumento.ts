@@ -7,6 +7,7 @@ import controllerFindNameDocumento from "../controller/ControllerFindNameDocumen
 import controllerFindIdDocumento from "../controller/ControllerFindIdDocumento";
 import controllerUpdateDocumento from "../controller/ControllerUpdateDocumento";
 import controllerDeleteDocumento from "../controller/ControllerDeleteDocumento";
+import controllerFindBtwDocumento from "../controller/ControllerFindBtwDateDocumento";
 
 class RouteDocumento {
     public routeDocumentoApi: Router;
@@ -16,6 +17,7 @@ class RouteDocumento {
     
         this.routeDocumentoApi.get("/getall", controllerFindAllDocumento.callFindAll);
         this.routeDocumentoApi.get("/getid/:id", controllerFindIdDocumento.callFindId);
+        this.routeDocumentoApi.get("/getdate", controllerFindBtwDocumento.callFindBtw);
         this.routeDocumentoApi.get("/getname/:name", controllerFindNameDocumento.callFindName);
         this.routeDocumentoApi.get("/download/:id", controllerDownloadDocumento.callDownloadDocumento);
     
