@@ -4,8 +4,9 @@ import Documento from "../model/Documento";
 
 class ControllerAddDocumeto extends ServiceAddDocumento {
     public callAddDocuemnto(req: Request, res: Response) {
+        let fechaSubida: Date = new Date();
         let objDocumento = new Documento(0, req.body.codCaso, req.body.tipoDocumento, 
-            req.body.nombre, "Sin Definir", req.body.fechaSubida);
+            req.body.nombre, "Sin Definir", fechaSubida);
     
         if(req.file){
             let url = `./src/external_files/pdf/${req.file.filename}`.replace(/\s+/g, "-");
