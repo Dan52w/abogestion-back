@@ -1,5 +1,6 @@
 import { Router } from "express";
 import controllerFindAllTipoVinculacion from "../controller/ControllerFindAllTipoVinculacion";
+import controllerAddTipoVinculacion from "../controller/ControllerAddTipoVinculacion";
 
 class RouteTipoVinculacion {
     public routeTipoVinculacionApi: Router;
@@ -8,6 +9,8 @@ class RouteTipoVinculacion {
         this.routeTipoVinculacionApi = Router();
     
         this.routeTipoVinculacionApi.get("/getall", controllerFindAllTipoVinculacion.callFindAll);
+    
+        this.routeTipoVinculacionApi.post("/add", controllerAddTipoVinculacion.callAddTipoVinculacion);
     }
 }
 
