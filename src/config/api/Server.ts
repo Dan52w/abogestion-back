@@ -15,6 +15,7 @@ import routeTipoEtiquetaApi from "../../app/tipo_etiqueta/route/RouteTipoEtiquet
 import routeEtiquetaApi from "../../app/etiqueta/route/RouteEtiqueta";
 import routeDocumentoApi from "../../app/documento/route/RouteDocumento";
 import routeDocEtiApi from "../../app/documento_etiqueta/route/RouteDocEti";
+import routeTipoVinculacionApi from "../../app/tipo_vinculacion/route/RouteTipoVinculacion";
 
 class Server {
     public app: express.Application;
@@ -42,6 +43,7 @@ class Server {
         this.app.use("/api/v1/etiqueta", routeEtiquetaApi);
         this.app.use("/api/v1/documento", routeDocumentoApi);
         this.app.use("/api/v1/doceti", routeDocEtiApi);
+        this.app.use("/api/v1/tipovinculacion", routeTipoVinculacionApi);
     }
 
     public encender(): void{
