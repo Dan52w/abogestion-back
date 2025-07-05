@@ -1,26 +1,26 @@
 import { Response } from "express";
-import DocumentoEtiqueta from "../model/DocumentoEtiqueta";
 import pool from "../../../config/connection/dbConnction";
 import { SQL_DOCUMENTO_ETIQUETA } from "../repository/sql_documentoetiquetas";
 
-class ServiceDeleteDocEti {
-    protected static async deleteDocEti(objDocEti: DocumentoEtiqueta, res: Response): Promise<any>{
+class ServiceDeleteCodDDocEti {
+    protected static async deleteCodDocEti(codDocumento: number, res: Response): Promise<any>{
         await pool
             .task(async (consulta) => {
                 let caso = 1;
-                const obj = await consulta.result(SQL_DOCUMENTO_ETIQUETA.DELETE, [objDocEti.codDocumento, objDocEti.codEtiqueta]);
+                const obj = await consulta.result(SQL_DOCUMENTO_ETIQUETA.DELETE_CODDOC, [codDocumento]);
             
-                if (obj.rowCount != 0) caso = 2;
+                if(obj.rowCount != 0) caso = 2;
             
                 return caso;
             })
             .then((caso) => {
                 switch (caso) {
                     case 1:
-                        res.status(404).json({respuesta: "No se encontro la relacion"});
+                        res.status(404).json({respuesta: "No se encontro Ninguna Relacion con este Documento"});
                         break;
                     default:
                         res.status(200).json({respuesta: "Eliminado Correctamente"});
+                        break;
                 }
             })
             .catch((error) => {
@@ -30,4 +30,4 @@ class ServiceDeleteDocEti {
     }
 }
 
-export default ServiceDeleteDocEti;
+export default ServiceDeleteCodDDocEti;
