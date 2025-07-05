@@ -4,6 +4,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
             CASE 
@@ -21,6 +22,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
             CASE 
@@ -39,6 +41,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
             CASE 
@@ -57,6 +60,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
@@ -73,6 +77,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
             CASE 
@@ -91,6 +96,7 @@ export const SQL_CASOS = {
             c.descripcion,
             e.nombre AS estado,
             c.fechaInicio,
+            c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
             CASE 
@@ -117,10 +123,11 @@ export const SQL_CASOS = {
             descripcion,
             estado,
             fechaInicio,
+            cliente,
             codSubtipoCaso,
             codCasoPadre)
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING id, titulo, descripcion, estado, fechaInicio, codSubtipoCaso, codCasoPadre`,
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, codSubtipoCaso, codCasoPadre`,
 
     UPDATE: `UPDATE casos
         SET titulo = $1,
@@ -128,9 +135,10 @@ export const SQL_CASOS = {
             estado = $3,
             fechaInicio = $4,
             codSubtipoCaso = $5,
-            codCasoPadre = $6
-        WHERE id = $7
-        RETURNING id, titulo, descripcion, estado, fechaInicio, codSubtipoCaso, codCasoPadre`,
+            codCasoPadre = $6,
+            cliente = $7
+        WHERE id = $8
+        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, codSubtipoCaso, codCasoPadre`,
 
     DELETE: `DELETE FROM casos
         WHERE id = $1`

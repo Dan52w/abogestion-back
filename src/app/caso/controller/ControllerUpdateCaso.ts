@@ -5,7 +5,7 @@ import Caso from "../model/Caso";
 class ControllerUpdateCaso extends ServiceUpdateCaso {
     public callUpdateCaso(req: Request, res: Response) {
         const objCaso = new Caso(req.body.id, req.body.titulo, req.body.descripcion, req.body.estado,
-            req.body.fechaInicio, req.body.codSubtipoCaso, req.body.codCasoPadre);
+            req.body.fechaInicio, req.body.cliente, req.body.codSubtipoCaso, req.body.codCasoPadre);
         ServiceUpdateCaso.updateCaso(objCaso, res);
     } 
 }

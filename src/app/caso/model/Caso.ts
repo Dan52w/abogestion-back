@@ -4,16 +4,18 @@ class Caso {
     private _descripcion: string;
     private _estado: number;
     private _fechaInicio: Date;
+    private _cliente: string;
     private _codSubtipoCaso: number;
     private _codCasoPadre: number;
 
-    constructor(id: number, titulo: string, descripcion: string, estado: number, fechaInicio: Date,
+    constructor(id: number, titulo: string, descripcion: string, estado: number, fechaInicio: Date,cliente: string,
         codSubtipoCaso: number, codCasoPadre: number) {
         this._id = id;
         this._titulo = titulo;
         this._descripcion = descripcion;
         this._estado = estado;
         this._fechaInicio = fechaInicio;
+        this._cliente = cliente;
         this._codSubtipoCaso = codSubtipoCaso;
         this._codCasoPadre = codCasoPadre;
     }
@@ -56,6 +58,14 @@ class Caso {
 
     public set fechaInicio(value: Date) {
         this._fechaInicio = value;
+    }
+
+    public get cliente(): string{
+        return this._cliente;
+    }
+
+    public set cliente(value: string) {
+        this._cliente = value;
     }
 
     public get codSubtipoCaso(): number {

@@ -11,10 +11,10 @@ class ServiceAddCaso {
             
                 if(!objCaso.codCasoPadre){
                     obj = await consulta.one(SQL_CASOS.ADD, [objCaso.titulo, objCaso.descripcion, objCaso.estado, 
-                    objCaso.fechaInicio, objCaso.codSubtipoCaso, 1]);
+                    objCaso.fechaInicio, objCaso.cliente, objCaso.codSubtipoCaso, 1]);
                 } else {
                     obj = await consulta.one(SQL_CASOS.ADD, [objCaso.titulo, objCaso.descripcion, objCaso.estado, 
-                    objCaso.fechaInicio, objCaso.codSubtipoCaso, objCaso.codCasoPadre]);
+                    objCaso.fechaInicio, objCaso.cliente, objCaso.codSubtipoCaso, objCaso.codCasoPadre]);
                 }
             
                 return obj;
