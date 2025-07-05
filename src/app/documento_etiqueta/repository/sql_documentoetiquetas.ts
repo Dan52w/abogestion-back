@@ -14,12 +14,13 @@ export const SQL_DOCUMENTO_ETIQUETA = {
         INNER JOIN etiquetas e ON de.codEtiqueta = e.id
         WHERE de.codDocumento = $1`,
 
-    FIND_BY_ETIQUETA: `SELECT de.codDocumento,
-            de.codEtiqueta,
+    FIND_BY_ETIQUETAS_ALL: `SELECT d.id AS codDocumento,
             d.nombre AS nombreDocumento
         FROM documentosEtiquetas de
         INNER JOIN documentos d ON de.codDocumento = d.id
-        WHERE de.codEtiqueta = $1`,
+        WHERE de.codEtiqueta = ANY($1::int[])
+        GROUP BY d.id, d.nombre
+        HAVING COUNT(DISTINCT de.codEtiqueta) = $2`,
 
     HOW_MANY: `SELECT COUNT(*) AS cantidad
         FROM documentosEtiquetas
