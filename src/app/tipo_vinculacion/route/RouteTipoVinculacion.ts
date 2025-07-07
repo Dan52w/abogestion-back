@@ -2,6 +2,7 @@ import { Router } from "express";
 import controllerFindAllTipoVinculacion from "../controller/ControllerFindAllTipoVinculacion";
 import controllerAddTipoVinculacion from "../controller/ControllerAddTipoVinculacion";
 import controllerUpdateTipoVinculacion from "../controller/ControllerUpdateTipoVinculacion";
+import controllerDeleteTipoVinculacion from "../controller/ControllerDeleteTipoVinculacion";
 
 class RouteTipoVinculacion {
     public routeTipoVinculacionApi: Router;
@@ -13,6 +14,7 @@ class RouteTipoVinculacion {
     
         this.routeTipoVinculacionApi.post("/add", controllerAddTipoVinculacion.callAddTipoVinculacion);
         this.routeTipoVinculacionApi.put("/update", controllerUpdateTipoVinculacion.callUpdateTipoVinculacion);
+        this.routeTipoVinculacionApi.delete("/delete/:id", controllerDeleteTipoVinculacion.callDeleteTipoVinculacion);
     }
 }
 

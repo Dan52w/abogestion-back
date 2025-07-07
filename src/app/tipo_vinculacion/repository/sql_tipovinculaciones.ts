@@ -32,6 +32,10 @@ export const SQL_TIPOVINCULACION = {
         WHERE nombre = $1
     `,
 
+    HOW_MANY_VINCULACION: `SELECT COUNT(codTipoVinculacion) AS cantidad
+        FROM vinculaciones
+        WHERE codTipoVinculacion = $1`,
+
     ADD: `
         INSERT INTO tipovinculaciones (
             nombre
