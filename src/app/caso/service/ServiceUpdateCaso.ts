@@ -18,10 +18,10 @@ class ServiceUpdateCaso {
             
                 if(!objCaso.codCasoPadre) {
                     obj = await consulta.one(SQL_CASOS.UPDATE, [objCaso.titulo, objCaso.descripcion, objCaso.estado, 
-                    objCaso.fechaInicio, objCaso.codSubtipoCaso, 1, objCaso.cliente, objCaso.id]);
+                    objCaso.fechaInicio, objCaso.codSubtipoCaso, 1, objCaso.cliente, objCaso.firma, objCaso.id]);
                 } else {
                     obj = await consulta.one(SQL_CASOS.UPDATE, [objCaso.titulo, objCaso.descripcion, objCaso.estado, 
-                    objCaso.fechaInicio, objCaso.codSubtipoCaso, objCaso.codCasoPadre, objCaso.cliente, objCaso.id]);
+                    objCaso.fechaInicio, objCaso.codSubtipoCaso, objCaso.codCasoPadre, objCaso.cliente, objCaso.firma, objCaso.id]);
                 }
             
                 caso = 2;

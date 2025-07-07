@@ -7,6 +7,7 @@ export const SQL_CASOS = {
             c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
+            c.firma,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
                 ELSE cp.titulo
@@ -25,6 +26,7 @@ export const SQL_CASOS = {
             c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
+            c.firma,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
                 ELSE cp.titulo
@@ -44,6 +46,7 @@ export const SQL_CASOS = {
             c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
+            c.firma,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
                 ELSE cp.titulo
@@ -80,6 +83,7 @@ export const SQL_CASOS = {
             c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
+            c.firma,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
                 ELSE cp.titulo
@@ -99,6 +103,7 @@ export const SQL_CASOS = {
             c.cliente,
             stc.nombre AS subtipo,
             tc.nombre AS tipo,
+            c.firma,
             CASE 
                 WHEN c.codCasoPadre = 1 THEN 'Caso principal'
                 ELSE cp.titulo
@@ -124,10 +129,11 @@ export const SQL_CASOS = {
             estado,
             fechaInicio,
             cliente,
+            firma,
             codSubtipoCaso,
             codCasoPadre)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
-        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, codSubtipoCaso, codCasoPadre`,
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, firma, codSubtipoCaso, codCasoPadre`,
 
     UPDATE: `UPDATE casos
         SET titulo = $1,
@@ -136,9 +142,10 @@ export const SQL_CASOS = {
             fechaInicio = $4,
             codSubtipoCaso = $5,
             codCasoPadre = $6,
-            cliente = $7
-        WHERE id = $8
-        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, codSubtipoCaso, codCasoPadre`,
+            cliente = $7,
+            firma = $8,
+        WHERE id = $9
+        RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, firma, codSubtipoCaso, codCasoPadre`,
 
     DELETE: `DELETE FROM casos
         WHERE id = $1`

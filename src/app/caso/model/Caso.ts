@@ -5,17 +5,19 @@ class Caso {
     private _estado: number;
     private _fechaInicio: Date;
     private _cliente: string;
+    private _firma: number;
     private _codSubtipoCaso: number;
     private _codCasoPadre: number;
 
-    constructor(id: number, titulo: string, descripcion: string, estado: number, fechaInicio: Date,cliente: string,
-        codSubtipoCaso: number, codCasoPadre: number) {
+    constructor(id: number, titulo: string, descripcion: string, estado: number, fechaInicio: Date, cliente: string,
+        firma: number, codSubtipoCaso: number, codCasoPadre: number) {
         this._id = id;
         this._titulo = titulo;
         this._descripcion = descripcion;
         this._estado = estado;
         this._fechaInicio = fechaInicio;
         this._cliente = cliente;
+        this._firma = firma
         this._codSubtipoCaso = codSubtipoCaso;
         this._codCasoPadre = codCasoPadre;
     }
@@ -66,6 +68,14 @@ class Caso {
 
     public set cliente(value: string) {
         this._cliente = value;
+    }
+
+    public get firma(): number{
+        return this._firma;
+    }
+
+    public set firma(value: number) {
+        this._firma = value;
     }
 
     public get codSubtipoCaso(): number {
