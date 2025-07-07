@@ -3,6 +3,7 @@ import controllerFindAllTipoVinculacion from "../controller/ControllerFindAllTip
 import controllerAddTipoVinculacion from "../controller/ControllerAddTipoVinculacion";
 import controllerUpdateTipoVinculacion from "../controller/ControllerUpdateTipoVinculacion";
 import controllerDeleteTipoVinculacion from "../controller/ControllerDeleteTipoVinculacion";
+import controllerFindNameTipoVinculacion from "../controller/ControllerFindNameTipoVinculacion";
 
 class RouteTipoVinculacion {
     public routeTipoVinculacionApi: Router;
@@ -11,6 +12,7 @@ class RouteTipoVinculacion {
         this.routeTipoVinculacionApi = Router();
     
         this.routeTipoVinculacionApi.get("/getall", controllerFindAllTipoVinculacion.callFindAll);
+        this.routeTipoVinculacionApi.get("/getname/:name", controllerFindNameTipoVinculacion.callFindName);
     
         this.routeTipoVinculacionApi.post("/add", controllerAddTipoVinculacion.callAddTipoVinculacion);
         this.routeTipoVinculacionApi.put("/update", controllerUpdateTipoVinculacion.callUpdateTipoVinculacion);
