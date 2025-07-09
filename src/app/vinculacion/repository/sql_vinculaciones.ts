@@ -139,5 +139,5 @@ export const SQL_VINCULACION = {
         RETURNING codPersona, codCaso, codTipoVinculacion`,
 
     DELETE: `DELETE FROM vinculaciones
-        WHERE codPersona = $1 AND codCaso = $2`,
+        WHERE codPersona = $1 AND codCaso = $2 AND codTipoVinculacion = $3`,
 };
