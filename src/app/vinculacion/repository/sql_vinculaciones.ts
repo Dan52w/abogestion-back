@@ -110,6 +110,22 @@ export const SQL_VINCULACION = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE c.firma = $1 AND v.codPersona = $2`,
 
+    HOW_MANY_PERSONA : `SELECT COUNT(id) AS cantidad
+        FROM personas
+        Where id = $1`,
+
+    HOW_MANY_CASO : `SELECT COUNT(id) AS cantidad
+        FROM casos
+        Where id = $1`,
+
+    HOW_MANY_TIPVIN : `SELECT COUNT(id) AS cantidad
+        FROM tipovinculaciones
+        Where id = $1`,
+
+    HOW_MANY : `SELECT COUNT(codCaso) AS cantidad
+        FROM vinculaciones
+        Where codPersona = $1 AND codCaso = $2 AND codTipoVinculacion = $3`,
+
     ADD : `INSERT INTO vinculaciones (
             codPersona,
             codCaso,

@@ -33,3 +33,5 @@ class Vinculacion {
         this._codTipoVinculacion = value;
     }
 }
+
+export default Vinculacion;
