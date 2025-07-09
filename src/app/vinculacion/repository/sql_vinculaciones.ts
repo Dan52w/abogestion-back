@@ -133,6 +133,11 @@ export const SQL_VINCULACION = {
         VALUES ($1, $2, $3)
         RETURNING codPersona, codCaso, codTipoVinculacion`,
 
+    UPDATE : `UPDATE vinculaciones
+        SET codTipoVinculacion = $1
+        WHERE codPersona = $2 AND codCaso = $3
+        RETURNING codPersona, codCaso, codTipoVinculacion`,
+
     DELETE: `DELETE FROM vinculaciones
         WHERE codPersona = $1 AND codCaso = $2`,
 };
