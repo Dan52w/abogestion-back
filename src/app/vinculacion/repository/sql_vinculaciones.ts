@@ -84,6 +84,7 @@ export const SQL_VINCULACION = {
                 ELSE cp.titulo
             END AS derivado
         FROM vinculaciones v
+        INNER JOIN casos c ON v.codCaso = c.id
         INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
@@ -106,6 +107,7 @@ export const SQL_VINCULACION = {
                 ELSE cp.titulo
             END AS derivado
         FROM vinculaciones v
+        INNER JOIN casos c ON v.codCaso = c.id
         INNER JOIN estados e ON c.estado = e.id
         INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
         INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
