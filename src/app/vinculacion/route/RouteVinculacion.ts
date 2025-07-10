@@ -4,6 +4,7 @@ import controllerAddVinculacion from "../controller/ControllerAddVinculacion";
 import controllerUpdateVinculacion from "../controller/ControllerUpdateVinculacion";
 import controllerDeleteVinculacion from "../controller/ControllerDeleteVinculacion";
 import controllerFindTitleVinculacion from "../controller/ControllerFindTitleVinculacion";
+import controllerFindSubTVinculacion from "../controller/ControllerFindSubTVinculacion";
 
 class RouteVinculacion {
     public routeVinculacionApi: Router;
@@ -13,6 +14,7 @@ class RouteVinculacion {
     
         this.routeVinculacionApi.get("/getall", controllerFindAllVinculacion.callFindAll);
         this.routeVinculacionApi.get("/gettitle", controllerFindTitleVinculacion.callFindTitle);
+        this.routeVinculacionApi.get("/getsubt", controllerFindSubTVinculacion.callFindSubT);
     
         this.routeVinculacionApi.post("/add", controllerAddVinculacion.callAddVinculacion);
         this.routeVinculacionApi.put("/update", controllerUpdateVinculacion.callUpdateVinculacion);
