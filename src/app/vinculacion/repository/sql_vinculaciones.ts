@@ -22,6 +22,34 @@ export const SQL_VINCULACION = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE c.firma = $1`,
 
+    FIND_BY_FILTERS : `SELECT v.codPersona,
+        v.codCaso,
+        v.codTipoVinculacion,
+        c.titulo,
+        c.descripcion,
+        e.nombre AS estado,
+        c.fechaInicio,
+        c.cliente,
+        stc.nombre AS subtipo,
+        tc.nombre AS tipo,
+        c.firma,
+        CASE 
+            WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+            ELSE cp.titulo
+        END AS derivado
+    FROM vinculaciones v
+    INNER JOIN casos c ON v.codCaso = c.id
+    INNER JOIN estados e ON c.estado = e.id
+    INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
+    INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
+    LEFT JOIN casos cp ON c.codCasoPadre = cp.id
+    WHERE c.firma = $1
+        AND ($2::text IS NULL OR c.titulo ILIKE '%' || $2 || '%')
+        AND ($3::text IS NULL OR e.nombre ILIKE '%' || $3 || '%')
+        AND ($4::text IS NULL OR stc.nombre ILIKE '%' || $4 || '%')
+        AND (($5::date IS NULL AND $6::date IS NULL) OR
+            (c.fechaInicio BETWEEN COALESCE($5::date, c.fechaInicio) AND COALESCE($6::date, c.fechaInicio)))`,
+
     FIND_TITLE_LIKE : `SELECT v.codPersona,
             v.codCaso,
             v.codTipoVinculacion,
