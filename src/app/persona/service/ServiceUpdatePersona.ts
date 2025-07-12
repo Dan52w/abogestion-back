@@ -25,7 +25,7 @@ class ServiceUpdatePersona {
             
                 obj = await consulta.one(SQL_PERSONA.UPDATE, [objPersona.cedula, objPersona.nombre, 
                     objPersona.apellido, objPersona.fecha_nacimiento, objPersona.correo, objPersona.telefono, 
-                    objPersona.direccion, objPersona.activo, idCliente.id, idPersona.id]);
+                    objPersona.direccion, objPersona.activo, idCliente.id, objPersona.codRol, idPersona.id]);
                 caso = 3;
             
                 return {caso, obj};

@@ -17,8 +17,8 @@ export const SQL_ROL = {
     FROM roles
     WHERE nombre = $1`,
 
-    HOW_MANY_PERSONASROLES: `SELECT count(codRol) as cantidad
-    FROM personasRoles
+    HOW_MANY_PERSONAS: `SELECT count(codRol) as cantidad
+    FROM personas
     WHERE codRol = $1`,
 
     ADD: `INSERT INTO roles (nombre)

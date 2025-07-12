@@ -30,9 +30,9 @@ class ServiceAddPersona {
                     return {caso, obj};
                 }
             
-                obj = await consulta.one(SQL_PERSONA.ADD, [objPersona.cedula, objPersona.nombre, objPersona.apellido,
-                    objPersona.fecha_nacimiento, objPersona.correo, objPersona.telefono, objPersona.direccion, objPersona.activo,
-                    idCliente.id]);
+                obj = await consulta.one(SQL_PERSONA.ADD, [objPersona.cedula, objPersona.nombre, objPersona.apellido, 
+                    objPersona.codRol, objPersona.fecha_nacimiento, objPersona.correo, objPersona.telefono, 
+                    objPersona.direccion, objPersona.activo, idCliente.id]);
                 caso = 4;
             
                 return {caso, obj};

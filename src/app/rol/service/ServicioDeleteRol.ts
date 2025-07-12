@@ -8,7 +8,7 @@ class ServicioDeleteRol {
             .task(async (consulta) => {
                 let caso = 1;
             
-                const validarTablas = await consulta.oneOrNone(SQL_ROL.HOW_MANY_PERSONASROLES, [id]);
+                const validarTablas = await consulta.oneOrNone(SQL_ROL.HOW_MANY_PERSONAS, [id]);
             
                 if (validarTablas.cantidad == 0) {
                     caso = 2;

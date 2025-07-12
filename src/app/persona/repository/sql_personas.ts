@@ -3,19 +3,7 @@ export const SQL_PERSONA = {
             p.cedula,
             p.nombre,
             p.apellido,
-            p.fecha_nacimiento,
-            p.correo,
-            p.telefono,
-            p.direccion,
-            p.activo,
-            c.nombre AS cliente
-        FROM personas p
-        INNER JOIN clientes c ON p.codCliente = c.id`,
-
-    FIND_ID: `SELECT p.id,
-            p.cedula,
-            p.nombre,
-            p.apellido,
+            r.nombre,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -24,12 +12,29 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id`,
+
+    FIND_ID: `SELECT p.id,
+            p.cedula,
+            p.nombre,
+            p.apellido,
+            r.nombre
+            p.fecha_nacimiento,
+            p.correo,
+            p.telefono,
+            p.direccion,
+            p.activo,
+            c.nombre AS cliente
+        FROM personas p
+        INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id
         WHERE p.id = $1`,
 
     FIND_CEDULA: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
+            r.nombre
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -38,12 +43,14 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id
         WHERE p.cedula ILIKE '%' || $1 || '%'`,
 
     FIND_BY_NAME: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
+            r.nombre
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -52,12 +59,14 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id
         WHERE p.nombre = $1`,
 
     FIND_BY_NAME_LIKE: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
+            r.nombre
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -66,6 +75,7 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id
         WHERE p.nombre ILIKE '%' || $1 || '%'
             OR p.apellido ILIKE '%' || $1 || '%'`,
 
@@ -73,6 +83,7 @@ export const SQL_PERSONA = {
             p.cedula,
             p.nombre,
             p.apellido,
+            r.nombre
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -81,6 +92,7 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r. ON p.codRol = r.id
         WHERE p.fecha_nacimiento BETWEEN $1 AND $2`,
 
     FIND_NAME_CLIENTE: `SELECT id,
@@ -124,14 +136,15 @@ export const SQL_PERSONA = {
             cedula,
             nombre,
             apellido,
+            codRol,
             fecha_nacimiento,
             correo,
             telefono,
             direccion,
             activo,
             codCliente)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-        RETURNING id, nombre, apellido, fecha_nacimiento, correo, telefono, direccion, activo`,
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        RETURNING id, nombre, apellido, codRol, fecha_nacimiento, correo, telefono, direccion, activo`,
 
     UPDATE: `UPDATE personas
         SET cedula = $1,
@@ -142,9 +155,10 @@ export const SQL_PERSONA = {
             telefono = $6,
             direccion = $7,
             activo = $8,
-            codCliente = $9
-        WHERE id = $10
-        RETURNING id, nombre, apellido, fecha_nacimiento, correo, telefono, direccion, activo`,
+            codCliente = $9,
+            codRol = $10
+        WHERE id = $11
+        RETURNING id, nombre, apellido, codRol, fecha_nacimiento, correo, telefono, direccion, activo`,
 
     DELETE: `DELETE FROM personas
         WHERE id = $1`

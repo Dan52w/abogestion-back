@@ -3,6 +3,7 @@ class Persona {
     private _cedula: string;
     private _nombre: string;
     private _apellido: string;
+    private _codRol: number;
     private _fecha_nacimiento: Date;
     private _correo: string;
     private _telefono: string;
@@ -10,12 +11,13 @@ class Persona {
     private _activo: boolean;
     private _codCliente: number;
 
-    constructor(id: number, cedula: string, nombre: string, apellido: string, fecha_nacimiento: Date,
+    constructor(id: number, cedula: string, nombre: string, apellido: string, codRol: number, fecha_nacimiento: Date,
         correo: string, telefono: string, direccion: string, activo: boolean, codCliente: number) {
         this._id = id;
         this._cedula = cedula;
         this._nombre = nombre;
         this._apellido = apellido;
+        this._codRol = codRol;
         this._fecha_nacimiento = fecha_nacimiento;
         this._correo = correo;
         this._telefono = telefono;
@@ -50,6 +52,13 @@ class Persona {
     }
     public set apellido(value: string) {
         this._apellido = value;
+    }
+
+    public get codRol(): number {
+        return this._codRol;
+    }
+    public set codRol(value: number) {
+        this._codRol = value;
     }
 
     public get fecha_nacimiento(): Date {
