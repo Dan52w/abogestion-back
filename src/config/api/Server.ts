@@ -5,7 +5,6 @@ import routeRolApi from "../../app/rol/route/RouteRol";
 import routeTipoClienteApi from "../../app/tipo_cliente/route/RouteTipoCliente";
 import routeClienteApi from "../../app/cliente/route/RouteCliente";
 import routePersonaApi from "../../app/persona/route/RoutePersona";
-import routaPRolesApi from "../../app/persona_rol/route/RoutePRoles";
 import routeTipoCasoApi from "../../app/tipo_caso/route/RouteTipoCaso";
 import routeSubTipoCasoApi from "../../app/subtipo_caso/route/RouteSubTipoCaso";
 import routeEstadoApi from "../../app/estado/route/RouteEstado";
@@ -34,7 +33,6 @@ class Server {
         this.app.use("/api/v1/tipocliente", routeTipoClienteApi);
         this.app.use("/api/v1/cliente", routeClienteApi);
         this.app.use("/api/v1/persona", routePersonaApi);
-        this.app.use("/api/v1/personarol", routaPRolesApi);
         this.app.use("/api/v1/tipocaso", routeTipoCasoApi);
         this.app.use("/api/v1/subtipocaso", routeSubTipoCasoApi);
         this.app.use("/api/v1/estado", routeEstadoApi);

@@ -3,7 +3,7 @@ export const SQL_PERSONA = {
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre,
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -12,13 +12,13 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id`,
+        INNER JOIN roles r ON p.codRol = r.id`,
 
     FIND_ID: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -27,14 +27,14 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id
+        INNER JOIN roles r ON p.codRol = r.id
         WHERE p.id = $1`,
 
     FIND_CEDULA: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -43,14 +43,14 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id
-        WHERE p.cedula ILIKE '%' || $1 || '%'`,
+        INNER JOIN roles r ON p.codRol = r.id
+        WHERE p.cedula = $1 `,
 
     FIND_BY_NAME: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -59,14 +59,14 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id
+        INNER JOIN roles r ON p.codRol = r.id
         WHERE p.nombre = $1`,
 
     FIND_BY_NAME_LIKE: `SELECT p.id,
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -75,7 +75,7 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id
+        INNER JOIN roles r ON p.codRol = r.id
         WHERE p.nombre ILIKE '%' || $1 || '%'
             OR p.apellido ILIKE '%' || $1 || '%'`,
 
@@ -83,7 +83,7 @@ export const SQL_PERSONA = {
             p.cedula,
             p.nombre,
             p.apellido,
-            r.nombre
+            r.nombre AS rol,
             p.fecha_nacimiento,
             p.correo,
             p.telefono,
@@ -92,7 +92,7 @@ export const SQL_PERSONA = {
             c.nombre AS cliente
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
-        INNER JOIN roles r. ON p.codRol = r.id
+        INNER JOIN roles r ON p.codRol = r.id
         WHERE p.fecha_nacimiento BETWEEN $1 AND $2`,
 
     FIND_NAME_CLIENTE: `SELECT id,
