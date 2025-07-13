@@ -31,7 +31,7 @@ class ServiceLogin {
             .then(({ caso, login, token }) => {
                 switch (caso) {
                     case 1:
-                        res.status(200).json({ respuesta: "Login exitoso", login, token });
+                        res.status(200).json({ login, token });
                         break;
                     case 2:
                         res.status(404).json({ respuesta: "No se encontró el email" });
