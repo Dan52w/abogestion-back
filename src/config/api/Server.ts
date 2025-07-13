@@ -17,6 +17,7 @@ import routeDocEtiApi from "../../app/documento_etiqueta/route/RouteDocEti";
 import routeTipoVinculacionApi from "../../app/tipo_vinculacion/route/RouteTipoVinculacion";
 import routeVinculacionApi from "../../app/vinculacion/route/RouteVinculacion";
 import routeLoginApi from "../../app/login/route/RouteLogin";
+import routeRegisterApi from "../../app/login/route/RouteRegister";
 
 class Server {
     public app: express.Application;
@@ -30,7 +31,8 @@ class Server {
         this.app.use(express.json({limit: '100Mb'}));
         this.app.use(express.urlencoded({extended: true}));
     
-        this.app.use("/api/v1/", routeLoginApi);
+        this.app.use("/api/v1/login", routeLoginApi);
+        this.app.use("/api/v1/register", routeRegisterApi);
         this.app.use("/api/v1/rol", routeRolApi);
         this.app.use("/api/v1/tipocliente", routeTipoClienteApi);
         this.app.use("/api/v1/cliente", routeClienteApi);
