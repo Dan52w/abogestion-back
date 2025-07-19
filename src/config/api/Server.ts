@@ -26,7 +26,10 @@ class Server {
         this.app = express();
     
         this.app.set("PORT", 3311); //Solo un set para el puerto
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: "http://localhost:3000",
+            credentials: true,
+        }));
         this.app.use(morgan("dev"));
         this.app.use(express.json({limit: '100Mb'}));
         this.app.use(express.urlencoded({extended: true}));

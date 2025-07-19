@@ -2,6 +2,7 @@ import { Response } from "express";
 import bcrypt from "bcryptjs";
 import pool from "../../../config/connection/dbConnction";
 import { SQL_LOGIN } from "../repository/sql_logins";
+import { serialize } from "cookie";
 import InfoToken from "../model/InfoToken";
 import jwt from "jsonwebtoken";
 
@@ -25,19 +26,33 @@ class ServiceLogin {
                     return { caso: 3 };
                 }
             
-                const token = jwt.sign(login, process.env.JWT_SECRET as string, { expiresIn: "8h" });
-                return { caso: 1, login, token };
+                const secret = process.env.JWT_SECRET;
+                if (secret) {
+                    const token = jwt.sign(login, secret, { expiresIn: "8h" });
+                    const serialized = serialize("Authorization", token, {
+                            httpOnly: true,
+                            secure: process.env.NODE_ENV === "production", // ✅ solo en producción
+                            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅
+                            maxAge: 8 * 60 * 60,
+                            path: "/login",
+                    });
+                    res.setHeader("Set-Cookie", serialized);
+                } else {
+                    throw new Error("La variable de entorno JWT_SECRET no está definida");
+                }
+            
+                return { caso: 1, login };
             })
-            .then(({ caso, login, token }) => {
+            .then(({ caso, login}) => {
                 switch (caso) {
                     case 1:
-                        res.status(200).json({ login, token });
+                        res.status(200).json({ login });
                         break;
                     case 2:
-                        res.status(404).json({ respuesta: "No se encontró el email" });
+                        res.status(401).json({ respuesta: "No se encontró el email" });
                         break;
                     case 3:
-                        res.status(400).json({ respuesta: "Correo o contraseña incorrecta" });
+                        res.status(401).json({ respuesta: "Correo o contraseña incorrecta" });
                         break;
                     default:
                         res.status(500).json({ respuesta: "Error inesperado" });
@@ -50,5 +65,6 @@ class ServiceLogin {
             });
     }
 }
+
 
 export default ServiceLogin;

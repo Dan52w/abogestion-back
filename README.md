@@ -53,6 +53,7 @@ npm i express-validator
 npm i bcryptjs
 npm i jsonwebtoken
 npm i multer
+npm i cookie
 
 | Paquete              | Función principal                                                |
 |----------------------|------------------------------------------------------------------|
@@ -64,6 +65,7 @@ npm i multer
 | **express-validator**| Validación de datos de entrada en las rutas.                     |
 | **pg-promise**       | Conexión y consulta a base de datos PostgreSQL.                  |
 | **multer**           | Gestionar la carga de archivos                                   |
+| **cookie**           | Serializar tokens de JWT                                         |
 ```
 
 Librerias del enterno de desarrollo
