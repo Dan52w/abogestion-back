@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import pool from "../../../config/connection/dbConnction";
 import { SQL_LOGIN } from "../repository/sql_logins";
 import { serialize } from "cookie";
-import InfoToken from "../model/InfoToken";
+import {InfoToken} from "../model/InfoToken";
 import jwt from "jsonwebtoken";
 
 class ServiceLogin {
@@ -31,10 +31,10 @@ class ServiceLogin {
                     const token = jwt.sign(login, secret, { expiresIn: "8h" });
                     const serialized = serialize("Authorization", token, {
                             httpOnly: true,
-                            secure: process.env.NODE_ENV === "production", // ✅ solo en producción
-                            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅
+                            secure: true,
+                            sameSite: "none",
                             maxAge: 8 * 60 * 60,
-                            path: "/login",
+                            path: "/",
                     });
                     res.setHeader("Set-Cookie", serialized);
                 } else {

@@ -18,6 +18,7 @@ import routeTipoVinculacionApi from "../../app/tipo_vinculacion/route/RouteTipoV
 import routeVinculacionApi from "../../app/vinculacion/route/RouteVinculacion";
 import routeLoginApi from "../../app/login/route/RouteLogin";
 import routeRegisterApi from "../../app/login/route/RouteRegister";
+import cookieParser from "cookie-parser";
 
 class Server {
     public app: express.Application;
@@ -33,6 +34,7 @@ class Server {
         this.app.use(morgan("dev"));
         this.app.use(express.json({limit: '100Mb'}));
         this.app.use(express.urlencoded({extended: true}));
+        this.app.use(cookieParser());
     
         this.app.use("/api/v1/login", routeLoginApi);
         this.app.use("/api/v1/register", routeRegisterApi);

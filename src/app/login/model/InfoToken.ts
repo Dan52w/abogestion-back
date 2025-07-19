@@ -1,15 +1,8 @@
-class InfoToken {
-    public codPersona?: number;
-    public nombresPersona?: string;
-    public apellidosPersona?: string;
-    public nombreRol?: string;
-    public cedula?: string;
-    public email?: string;
-    public password?: string;
-
-    constructor() {
-        
-    }
+export interface InfoToken {
+  id?: number;
+  nombre?: string;
+  apellido?: string;
+  rol?: string;
+  correo?: string;
+  password?: string;
 }
-
-export default InfoToken;
