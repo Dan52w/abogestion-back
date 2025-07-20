@@ -79,6 +79,44 @@ export const SQL_PERSONA = {
         WHERE p.nombre ILIKE '%' || $1 || '%'
             OR p.apellido ILIKE '%' || $1 || '%'`,
 
+    FIND_BY_CLIENTE: `SELECT 
+            p.id,
+            p.cedula,
+            p.nombre,
+            p.apellido,
+            r.nombre AS rol,
+            p.fecha_nacimiento,
+            p.correo,
+            p.telefono,
+            p.direccion,
+            p.activo,
+            c.nombre AS cliente
+        FROM personas p
+        INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r ON p.codRol = r.id
+        WHERE c.nombre = $1`,
+
+    FIND_BY_CLIENTEANDNAME: `SELECT 
+            p.id,
+            p.cedula,
+            p.nombre,
+            p.apellido,
+            r.nombre AS rol,
+            p.fecha_nacimiento,
+            p.correo,
+            p.telefono,
+            p.direccion,
+            p.activo,
+            c.nombre AS cliente
+        FROM personas p
+        INNER JOIN clientes c ON p.codCliente = c.id
+        INNER JOIN roles r ON p.codRol = r.id
+        WHERE c.nombre = $1
+            AND ($2 IS NULL 
+                OR $2 = '' 
+                OR p.nombre ILIKE '%' || $2 || '%' 
+                OR p.apellido ILIKE '%' || $2 || '%');`,
+
     FIND_BY_FECHANACIMIENTO_BETWEEN: `SELECT p.id,
             p.cedula,
             p.nombre,
