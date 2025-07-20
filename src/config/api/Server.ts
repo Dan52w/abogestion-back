@@ -19,6 +19,7 @@ import routeVinculacionApi from "../../app/vinculacion/route/RouteVinculacion";
 import routeLoginApi from "../../app/login/route/RouteLogin";
 import routeRegisterApi from "../../app/login/route/RouteRegister";
 import cookieParser from "cookie-parser";
+import routeHistCambioApi from "../../app/historialcambios/route/RouteHistCambio";
 
 class Server {
     public app: express.Application;
@@ -53,6 +54,7 @@ class Server {
         this.app.use("/api/v1/doceti", routeDocEtiApi);
         this.app.use("/api/v1/tipovinculacion", routeTipoVinculacionApi);
         this.app.use("/api/v1/vinculacion", routeVinculacionApi);
+        this.app.use("/api/v1/historialcambios", routeHistCambioApi);
     }
 
     public encender(): void{
