@@ -3,7 +3,8 @@ import ServiceFindPersonaVinculacion from "../service/ServiceFindPersonaVinculac
 
 class ControllerFindPersonaVinculacion extends ServiceFindPersonaVinculacion {
     public callFindPersona(req: Request, res: Response) {
-        const { codPersona, codClienteConsultant } = req.body;
+        const codPersona = Number(req.params.codPersona);
+        const codClienteConsultant = Number(req.params.codClienteConsultant);
         ServiceFindPersonaVinculacion.findPersona(codPersona, codClienteConsultant, res);
     }
 }

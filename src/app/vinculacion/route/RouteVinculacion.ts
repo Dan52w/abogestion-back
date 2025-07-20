@@ -7,6 +7,7 @@ import controllerFindTitleVinculacion from "../controller/ControllerFindTitleVin
 import controllerFindSubTVinculacion from "../controller/ControllerFindSubTVinculacion";
 import controllerFindPersonaVinculacion from "../controller/ControllerFindPersonaVinculacion";
 import controllerFindGeneralVinculaciones from "../controller/ControllerFindGeneralVinculaciones";
+import { verificarToken } from "../../../middlewar/verificarToken";
 
 class RouteVinculacion {
     public routeVinculacionApi: Router;
@@ -17,7 +18,7 @@ class RouteVinculacion {
         this.routeVinculacionApi.get("/getall", controllerFindAllVinculacion.callFindAll);
         this.routeVinculacionApi.get("/gettitle", controllerFindTitleVinculacion.callFindTitle);
         this.routeVinculacionApi.get("/getsubt", controllerFindSubTVinculacion.callFindSubT);
-        this.routeVinculacionApi.get("/getpersona", controllerFindPersonaVinculacion.callFindPersona);
+        this.routeVinculacionApi.get("/getpersona/:codPersona/:codClienteConsultant", verificarToken, controllerFindPersonaVinculacion.callFindPersona);
         this.routeVinculacionApi.get("/getgeneral", controllerFindGeneralVinculaciones.callFindGeneral);
     
         this.routeVinculacionApi.post("/add", controllerAddVinculacion.callAddVinculacion);

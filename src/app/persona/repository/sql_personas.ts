@@ -9,7 +9,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id`,
@@ -24,7 +25,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -40,7 +42,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -56,7 +59,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -72,7 +76,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -90,7 +95,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -107,7 +113,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
@@ -127,7 +134,8 @@ export const SQL_PERSONA = {
             p.telefono,
             p.direccion,
             p.activo,
-            c.nombre AS cliente
+            c.nombre AS cliente,
+            c.id AS clienteId
         FROM personas p
         INNER JOIN clientes c ON p.codCliente = c.id
         INNER JOIN roles r ON p.codRol = r.id
