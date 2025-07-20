@@ -75,6 +75,23 @@ export const SQL_CASOS = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE stc.nombre ILIKE '%' || $1 || '%'`,
 
+    FIND_BY_CASOPADRE: `SELECT c.id,
+            c.titulo,
+            c.descripcion,
+            e.nombre AS estado,
+            c.fechaInicio,
+            c.cliente,
+            stc.nombre AS subtipo,
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
+        FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
+        INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
+        LEFT JOIN casos cp ON c.codCasoPadre = cp.id
+        WHERE c.codCasoPadre = $1`,
+
     FIND_BY_TIPO: `SELECT c.id,
             c.titulo,
             c.descripcion,
@@ -143,7 +160,7 @@ export const SQL_CASOS = {
             codSubtipoCaso = $5,
             codCasoPadre = $6,
             cliente = $7,
-            firma = $8,
+            firma = $8
         WHERE id = $9
         RETURNING id, titulo, descripcion, estado, fechaInicio, cliente, firma, codSubtipoCaso, codCasoPadre`,
 
