@@ -19,7 +19,7 @@ class RouteVinculacion {
         this.routeVinculacionApi.get("/gettitle", controllerFindTitleVinculacion.callFindTitle);
         this.routeVinculacionApi.get("/getsubt", controllerFindSubTVinculacion.callFindSubT);
         this.routeVinculacionApi.get("/getpersona/:codPersona/:codClienteConsultant", verificarToken, controllerFindPersonaVinculacion.callFindPersona);
-        this.routeVinculacionApi.get("/getgeneral", controllerFindGeneralVinculaciones.callFindGeneral);
+        this.routeVinculacionApi.post("/getgeneral", controllerFindGeneralVinculaciones.callFindGeneral);
     
         this.routeVinculacionApi.post("/add", controllerAddVinculacion.callAddVinculacion);
         this.routeVinculacionApi.put("/update", controllerUpdateVinculacion.callUpdateVinculacion);

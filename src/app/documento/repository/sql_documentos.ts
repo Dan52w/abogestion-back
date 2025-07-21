@@ -37,6 +37,23 @@ export const SQL_DOCUMENTOS = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE d.id = $1`,
 
+    FIND_CODCASO : `SELECT d.id,
+            c.titulo AS caso,
+            c.id AS codCaso,
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado,
+            td.nombre AS tipoDocumento,
+            d.nombre,
+            d.url,
+            d.fechaSubida
+        FROM documentos d
+        INNER JOIN tipoDocumentos td ON d.tipoDocumento = td.id
+        INNER JOIN casos c ON d.codCaso = c.id
+        LEFT JOIN casos cp ON c.codCasoPadre = cp.id
+        WHERE d.codCaso = $1`,
+
     FIND_NAME : `SELECT d.id,
             c.titulo AS caso,
             c.id AS codCaso,

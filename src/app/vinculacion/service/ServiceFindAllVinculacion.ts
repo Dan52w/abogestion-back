@@ -13,8 +13,6 @@ class ServiceFindAllVinculacion {
                     caso = 2;
                 }
             
-                console.log(obj);
-            
                 return {caso, obj};
             })
             .then(({caso, obj}) => {
