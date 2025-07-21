@@ -150,6 +150,29 @@ export const SQL_VINCULACION = {
         FROM casos
         Where id = $1`,
 
+    HOW_MANY_CASOSASIGNADOS : `SELECT COUNT(DISTINCT v.codCaso) AS cantidad
+        FROM vinculaciones v
+        INNER JOIN tipoVinculaciones tv ON v.codTipoVinculacion = tv.id
+        Where v.codPersona = $1 AND tv.nombre = 'Abogado Asignado'`,
+
+    HOW_MANY_CASOSACTIVOS : `SELECT COUNT(DISTINCT v.codCaso) AS cantidad
+        FROM vinculaciones v
+        INNER JOIN tipoVinculaciones tv ON v.codTipoVinculacion = tv.id
+        INNER JOIN casos c ON v.codCaso = c.id
+        INNER JOIN estados e ON c.estado = e.id
+        WHERE v.codPersona = $1
+        AND tv.nombre = 'Abogado Asignado'
+        AND e.nombre != 'Finalizado'`,
+
+    HOW_MANY_CASOSFINALIZADOS : `SELECT COUNT(DISTINCT v.codCaso) AS cantidad
+        FROM vinculaciones v
+        INNER JOIN tipoVinculaciones tv ON v.codTipoVinculacion = tv.id
+        INNER JOIN casos c ON v.codCaso = c.id
+        INNER JOIN estados e ON c.estado = e.id
+        WHERE v.codPersona = $1
+        AND tv.nombre = 'Abogado Asignado'
+        AND e.nombre = 'Finalizado'`,
+
     HOW_MANY_TIPVIN : `SELECT COUNT(id) AS cantidad
         FROM tipovinculaciones
         Where id = $1`,
