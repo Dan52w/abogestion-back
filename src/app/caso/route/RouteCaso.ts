@@ -9,6 +9,8 @@ import controllerFindSubTipoCaso from "../controller/ControllerFindSubTipoCaso";
 import controllerFindTipoCaso from "../controller/ControllerFindTipoCaso ";
 import controllerFindEstadoCaso from "../controller/ControllerFindEstadoCaso";
 import controllerFindCasoPadreCaso from "../controller/ControllerFindCasoPadreCaso";
+import { verificarToken } from "../../../middlewar/verificarToken";
+import controllerFindFilterCaso from "../controller/ControllerFindFilterCaso";
 
 class RouteCaso {
     public routeCasoApi : Router;
@@ -23,6 +25,8 @@ class RouteCaso {
         this.routeCasoApi.get("/gettype/:type", controllerFindTipoCaso.callFindTipo);
         this.routeCasoApi.get("/getestado/:estado", controllerFindEstadoCaso.callFindEstado);
         this.routeCasoApi.get("/getpadre/:casoPadre", controllerFindCasoPadreCaso.callFindCasoPadre);
+    
+        this.routeCasoApi.post("/getfilter", verificarToken, controllerFindFilterCaso.callFindFilter);
     
         this.routeCasoApi.post("/add", controllerAddCaso.callAddCaso);
         this.routeCasoApi.put("/update", controllerUpdateCaso.callUpdateCaso);

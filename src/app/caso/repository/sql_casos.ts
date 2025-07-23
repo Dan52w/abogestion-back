@@ -112,6 +112,32 @@ export const SQL_CASOS = {
         LEFT JOIN casos cp ON c.codCasoPadre = cp.id
         WHERE tc.nombre ILIKE '%' || $1 || '%'`,
 
+    FIND_BY_FILTERS : `SELECT c.id AS codcaso,
+            c.titulo,
+            c.descripcion,
+            e.nombre AS estado,
+            c.fechaInicio,
+            c.cliente,
+            stc.nombre AS subtipo,
+            tc.nombre AS tipo,
+            c.firma,
+            CASE 
+                WHEN c.codCasoPadre = 1 THEN 'Caso principal'
+                ELSE cp.titulo
+            END AS derivado
+        FROM casos c
+        INNER JOIN estados e ON c.estado = e.id
+        INNER JOIN subtipocasos stc ON c.codSubtipoCaso = stc.id
+        INNER JOIN tipocasos tc ON stc.codTipoCaso = tc.id
+        LEFT JOIN casos cp ON c.codCasoPadre = cp.id
+        WHERE c.firma = $1
+        AND ($2 IS NULL OR TRIM($2) = '' OR c.titulo ILIKE '%' || $2 || '%')
+        AND ($3 IS NULL OR TRIM($3) = '' OR e.nombre ILIKE '%' || $3 || '%')
+        AND ($4 IS NULL OR TRIM($4) = '' OR stc.nombre ILIKE '%' || $4 || '%')
+        AND (($5 IS NULL AND $6 IS NULL) OR
+            (c.fechaInicio IS NOT NULL AND c.fechaInicio BETWEEN COALESCE($5, c.fechaInicio) AND COALESCE($6, c.fechaInicio)))
+        ORDER BY c.fechaInicio DESC`,
+
     FIND_BY_ESTADO: `SELECT c.id,
             c.titulo,
             c.descripcion,

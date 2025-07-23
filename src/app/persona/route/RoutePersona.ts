@@ -7,6 +7,7 @@ import controllerDeleteCliente from "../../cliente/controller/ControllerDeleteCl
 import controllerFindCcPersona from "../controller/ControllerFindCcPersona";
 import controllerFindBtwDatePersona from "../controller/ControllerFindBtwDatePersona";
 import controllerFindEquipoNamePersona from "../controller/ControllerFindEquipoNamePersona";
+import { verificarToken } from "../../../middlewar/verificarToken";
 
 class RoutePersona {
     public routePersonaApi: Router;
@@ -22,7 +23,7 @@ class RoutePersona {
         this.routePersonaApi.get("/getteam/:nameCliente/:name", controllerFindEquipoNamePersona.callFindEquipo);
     
         this.routePersonaApi.post("/add", controllerAddPersona.callAddPersona);
-        this.routePersonaApi.put("/update", controllerUpdatePersona.callUpdatePersona);
+        this.routePersonaApi.put("/update", verificarToken, controllerUpdatePersona.callUpdatePersona);
         this.routePersonaApi.delete("/delete/:id", controllerDeleteCliente.callDeleteCliente);
     }
 }
