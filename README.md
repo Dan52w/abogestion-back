@@ -139,3 +139,5 @@ Abogestion/
 │   ├── middlewar/                 # 
 └── [Archivos de configuración]    # Configuraciones varias
 ```
+
+Este proyecto representa mi primer acercamiento. Actualmente estoy trabajando en una nueva versión con una mejor arquitectura.
