@@ -2,6 +2,8 @@
 
 El proyecto consiste en el desarrollo de un aplicativo web orientado a abogados y firmas jurídicas, con el objetivo de optimizar la búsqueda, gestión y organización de documentos legales. Esta herramienta permite llevar un control digital de los casos de forma sencilla y segura, facilitando la subida, descarga y administración de archivos. La solución responde a la necesidad de modernizar procesos que tradicionalmente se han realizado en papel, lo cual implica riesgos de pérdida de información y una gestión poco eficiente.
 
+⚠️ Nota: Este proyecto corresponde a una primera versión (MVP inicial) desarrollada como parte de un proceso de aprendizaje. Actualmente se está trabajando en una nueva versión con una arquitectura más madura y un alcance mejor definido.
+
 ---
 
 ## 📁 Índice
@@ -139,5 +141,15 @@ Abogestion/
 │   ├── middlewar/                 # 
 └── [Archivos de configuración]    # Configuraciones varias
 ```
+
+Autor y licencia
+
+Autor: Dan
+Proyecto desarrollado como iniciativa personal y primer acercamiento a la construcción de un sistema de gestión legal.
+
+Licencia: MIT License  
+Este proyecto se distribuye bajo la licencia MIT, lo que permite su uso, modificación y distribución con fines personales o comerciales, siempre que se mantenga el reconocimiento al autor original.
+
+Este repositorio representa una versión inicial del proyecto. La versión actual en desarrollo cuenta con una arquitectura distinta y no corresponde directamente a este código.
 
 Este proyecto representa mi primer acercamiento. Actualmente estoy trabajando en una nueva versión con una mejor arquitectura.
